@@ -45,7 +45,7 @@ async def ask_question(request: AskQuestionRequest):
         completion = client.chat.completions.create(
             model="llama-3.2-90b-vision-preview",
             messages=[
-                {"role": "system", "content": "You are an AI career coach advisor. Your role is to analyze the provided resume or job description context and offer professional career advice, job search strategies, interview preparation tips, and resume improvement suggestions. Be specific, actionable, and supportive in your guidance. Your response must be in JSON format."},
+                {"role": "system", "content": "You are an AI career coach advisor. Your role is to analyze the provided resume or job description context and offer professional career advice, job search strategies, interview preparation tips, and resume improvement suggestions. Be specific, actionable, and supportive in your guidance."},
                 {"role": "user", "content": f"Context: {request.extracted_text}"},
                 {"role": "user", "content": f"Question: {request.question}"},
                 {"role": "user", "content": f"Previous Conversation: {request.previous_convo}"}
@@ -54,7 +54,6 @@ async def ask_question(request: AskQuestionRequest):
             max_tokens=1024,
             top_p=1,
             stream=False,
-            response_format={"type": "json_object"},
             stop=None,
         )
 
