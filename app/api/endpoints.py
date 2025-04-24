@@ -43,7 +43,7 @@ async def upload_pdf(
 async def ask_question(request: AskQuestionRequest):
     try:
         completion = client.chat.completions.create(
-            model="llama-3.2-90b-vision-preview",
+            model="mistral-saba-24b",
             messages=[
                 {"role": "system", "content": "You are an AI career coach advisor. Your role is to analyze the provided resume or job description context and offer professional career advice, job search strategies, interview preparation tips, and resume improvement suggestions. Be specific, actionable, and supportive in your guidance."},
                 {"role": "user", "content": f"Context: {request.extracted_text}"},
